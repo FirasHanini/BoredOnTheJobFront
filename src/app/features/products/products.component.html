@@ -1,0 +1,23 @@
+<div class="products-container">
+  <h2 class="page-title">Nos Produits</h2>
+  
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let product of products" [routerLink]="[product.id]">
+     <!-- <div class="image-wrapper">
+        <img [src]="product.imageUrl || 'assets/default-product.jpg'" [alt]="product.name">
+      </div>
+      -->
+      <div class="product-info">
+        <h3 class="product-name">{{ product.name }}</h3>
+        <p class="product-description">{{ product.description }}</p>
+        
+        <div class="product-footer">
+          <span class="product-price">{{ product.price }} TND</span>
+          <span class="product-stock" [class.low-stock]="product.stock < 5">
+            Stock: {{ product.stock }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

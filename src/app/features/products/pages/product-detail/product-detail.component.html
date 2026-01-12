@@ -1,0 +1,50 @@
+<div class="detail-container" *ngIf="product">
+  <button class="btn-back" routerLink="/products">
+    <i class="fas fa-arrow-left"></i> Retour aux produits
+  </button>
+
+  <div class="product-detail-card">
+    <div class="product-layout">
+      <div class="image-section">
+ <!--       <img [src]="product.imageUrl || 'assets/default-product.jpg'" [alt]="product.name"> -->
+        <div class="stock-badge" [class.out-of-stock]="product.stock === 0">
+          {{ product.stock > 0 ? 'En Stock (' + product.stock + ')' : 'Rupture de stock' }}
+        </div>
+      </div>
+
+      <div class="info-section">
+        <div class="header-info">
+          <span class="category-tag">Électronique</span> <h1>{{ product.name }}</h1>
+          <p class="product-id">Référence: #{{ product.id }}</p>
+        </div>
+
+        <div class="price-box">
+          <span class="currency">TND</span>
+          <span class="amount">{{ product.price }}</span>
+        </div>
+
+        <div class="description-box">
+          <h3>Description</h3>
+          <p>{{ product.description }}</p>
+        </div>
+
+        <div class="action-area">
+          <div class="quantity-selector" *ngIf="product.stock > 0">
+            <button (click)="changeQty(-1)" [disabled]="quantity <= 1">-</button>
+            <span>{{ quantity }}</span>
+            <button (click)="changeQty(1)" [disabled]="quantity >= product.stock">+</button>
+          </div>
+
+          <button class="btn-buy" [disabled]="product.stock === 0" (click)="onBuy()">
+            <i class="fas fa-shopping-cart"></i>
+            {{ product.stock > 0 ? 'Ajouter au panier' : 'Indisponible' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loader-container" *ngIf="!product">
+  <div class="spinner"></div>
+</div>

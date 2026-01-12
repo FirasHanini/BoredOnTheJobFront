@@ -1,0 +1,101 @@
+.products-container {
+  padding: 2rem;
+  background-color: #f8fafc; /* Fond très clair pour faire ressortir les cartes */
+  min-height: 100vh;
+}
+
+.page-title {
+  margin-bottom: 2rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+/* Grille responsive */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Style de la carte */
+.product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Image avec ratio fixe */
+.image-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Pour garder des images carrées comme sur ton image */
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Texte et détails */
+.product-info {
+  padding: 1.25rem;
+}
+
+.product-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+}
+
+.product-description {
+  font-size: 0.9rem;
+  color: #64748b; /* Gris doux pour le texte de corps */
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Coupe le texte après 2 lignes */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Footer de la carte */
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.product-price {
+  font-weight: 700;
+  color: #3b82f6; /* Bleu identique à ta sidebar */
+  font-size: 1.1rem;
+}
+
+.product-stock {
+  font-size: 0.8rem;
+  color: #10b981; /* Vert pour stock ok */
+  background: #ecfdf5;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.product-stock.low-stock {
+  color: #ef4444;
+  background: #fef2f2;
+}

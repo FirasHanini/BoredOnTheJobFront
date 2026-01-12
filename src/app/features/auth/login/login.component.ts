@@ -32,7 +32,7 @@ export class LoginComponent {
     this.loading = true;
     this.authService.login(this.loginForm.value)
       .subscribe({
-        next: () => this.router.navigate(['/dashboard']),
+        next: () => this.router.navigate(['/products']),
         error: () => {
           this.error = 'Invalid credentials';
           this.loading = false;

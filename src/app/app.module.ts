@@ -10,11 +10,19 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
+import { SideBarComponent } from './side-bar/side-bar.component';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     
-    DashboardComponent
+    DashboardComponent,
+        
+        
+         SideBarComponent,
+                  MainLayoutComponent
   ],
   imports: [
     BrowserModule,
