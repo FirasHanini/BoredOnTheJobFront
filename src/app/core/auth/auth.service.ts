@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,8 @@ export class AuthService {
         tap(res => {
           
           localStorage.setItem('access_token', res.token);
-          localStorage.setItem('role', res.role);
+          this.getDetails(res.token);
+          
         })
       );
   }
@@ -35,10 +37,24 @@ export class AuthService {
   }
 
 
-   getRole() {
-    const token = localStorage.getItem('token');
-    if (!token) return '';
-    const payload = JSON.parse(atob(token.split('.')[1]));
-    return payload.role;
+   getDetails(token: string):void {
+
+    if (!token){ 
+      console.error("No token provided");
+      return ;
+
     }
+
+    try {
+      const decoded: any = jwtDecode(token);
+      localStorage.setItem('role', decoded.role);
+      localStorage.setItem('email', decoded.sub);
+
+      console.info("Decoded token:", decoded);
+     
+    } catch (Error) {
+      console.error("Failed to decode token", Error)
+      ;
+    }
+  }
 }

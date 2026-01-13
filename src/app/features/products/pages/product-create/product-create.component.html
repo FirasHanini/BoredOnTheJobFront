@@ -1,1 +1,59 @@
-<p>product-create works!</p>
+<div class="container">
+  <a routerLink="/products" class="back-link">← Retour aux produits</a>
+
+  <div class="product-card" [formGroup]="productForm">
+    <div class="image-section">
+      <div class="stock-badge">En Stock ({{productForm.get('stock')?.value}})</div>
+      <div class="upload-placeholder">
+        <span>📸 Ajouter une image</span>
+      </div>
+    </div>
+
+    <div class="info-section">
+      
+      <div class="field-group">
+        <span class="category-label" *ngIf="!editState['category']" (click)="toggleEdit('category', true)">
+          {{ productForm.get('category')?.value }}
+        </span>
+        <input *ngIf="editState['category']" formControlName="category" 
+               (blur)="toggleEdit('category', false)" autofocus class="input-category">
+      </div>
+
+      <div class="field-group">
+        <h1 *ngIf="!editState['name']" (click)="toggleEdit('name', true)" class="product-title">
+          {{ productForm.get('name')?.value }}
+        </h1>
+        <input *ngIf="editState['name']" formControlName="name" 
+               (blur)="toggleEdit('name', false)" autofocus class="input-title">
+      </div>
+
+      <div class="price-row">
+        <span class="currency">TND</span>
+        <span *ngIf="!editState['price']" (click)="toggleEdit('price', true)" class="price-value">
+          {{ productForm.get('price')?.value }}
+        </span>
+        <input *ngIf="editState['price']" type="number" formControlName="price" 
+               (blur)="toggleEdit('price', false)" autofocus class="input-price">
+      </div>
+
+      <div class="description-section">
+        <h3>Description</h3>
+        <p *ngIf="!editState['description']" (click)="toggleEdit('description', true)" class="desc-text">
+          {{ productForm.get('description')?.value }}
+        </p>
+        <textarea *ngIf="editState['description']" formControlName="description" 
+                  (blur)="toggleEdit('description', false)" autofocus class="input-desc"></textarea>
+      </div>
+
+      <div class="actions">
+        <div class="stock-selector">
+          <button (click)="productForm.patchValue({stock: productForm.get('stock')?.value - 1})">-</button>
+          <input type="number" formControlName="stock">
+          <button (click)="productForm.patchValue({stock: productForm.get('stock')?.value + 1})">+</button>
+        </div>
+        <button class="save-btn" (click)="onSave()">Enregistrer le produit</button>
+      </div>
+
+    </div>
+  </div>
+</div>

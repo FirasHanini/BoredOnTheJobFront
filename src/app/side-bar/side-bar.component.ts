@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/auth/auth.service';
 import { Router } from '@angular/router';
 import { APP_ROUTES } from '../AppRoutes';
@@ -8,10 +8,15 @@ import { APP_ROUTES } from '../AppRoutes';
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.css']
 })
-export class SideBarComponent {
+export class SideBarComponent implements OnInit {
+   email: string | null = '';
+   role: string | null = '';
   constructor( private authService: AuthService,
               private router: Router
   ) {}
+  ngOnInit(): void {
+    this.getDetails();
+  }
 
 
 
@@ -29,6 +34,18 @@ export class SideBarComponent {
     }
     );
     
+  }
+
+  isSeller(): boolean {
+    const role = localStorage.getItem('role');
+    
+    return role === 'SELLER';
+  }
+
+  getDetails(): void {
+    this.email = localStorage.getItem('email');
+    this.role = localStorage.getItem('role');
+    console.log("Email from sidebar"+this.email);
   }
 
 }

@@ -7,9 +7,12 @@ import { AuthGuard } from './core/auth/auth.guard';
 
 import { APP_ROUTES } from './AppRoutes';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { guestGuard } from './core/auth/guestGuard';
 
 const routes: Routes = [
-    { path: APP_ROUTES.LOGIN, loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule) },
+    { path: APP_ROUTES.LOGIN, 
+      loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule),
+    canActivate: [guestGuard]  },
   { path: '', 
     canActivate: [AuthGuard], 
     component: MainLayoutComponent,

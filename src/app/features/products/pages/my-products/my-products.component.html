@@ -1,5 +1,10 @@
 <div class="products-container">
-  <h2 class="page-title">Shop</h2>
+  <div class="header-section">
+    <h2 class="page-title">My Products</h2>
+    <button class="add-btn" routerLink="/products/new">
+      <span class="plus-icon">+</span> Add Product
+    </button>
+  </div>
   
   <div class="products-grid">
     <div class="product-card" *ngFor="let product of products" [routerLink]="[product.id]">

@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { RouterModule } from '@angular/router';
+
 
 
 @NgModule({
@@ -22,13 +24,18 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
         
         
          SideBarComponent,
-                  MainLayoutComponent
+                  MainLayoutComponent,
+                  
+                 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    
+  
   
   ],
   providers: [

@@ -4,6 +4,7 @@ import { ProductsComponent } from './products.component';
 import { ProductCreateComponent } from './pages/product-create/product-create.component';
 import { RoleGuard } from '../auth/role.guard';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { MyProductsComponent } from './pages/my-products/my-products.component';
 
 const routes: Routes = [
   { path: '', 
@@ -14,16 +15,19 @@ const routes: Routes = [
     canActivate: [RoleGuard],
     data: { roles: ['SELLER', 'ADMIN'] }
   },
+  {
+    path: 'my-products',
+    component: MyProductsComponent
+  },
   { path: ':id', 
-    component: ProductDetailComponent,
- // canActivate: [RoleGuard],
- //   data: { roles: ['USER', 'SELLER', 'ADMIN'] } 
+    component: ProductDetailComponent
   }
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [
+    RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class ProductsRoutingModule { }

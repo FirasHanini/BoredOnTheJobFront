@@ -3,21 +3,21 @@
     <div class="logo-icon">
       <i class="monitor-icon">🖥️</i> </div>
     <div class="header-text">
-      <h1 class="brand-name">EduPortal</h1>
-      <span class="sub-brand">Academic Platform</span>
+      <h1 class="brand-name">Green Force</h1>
+      <span class="sub-brand">The Swords of the Crying</span>
     </div>
   </div>
 
   <hr class="divider" />
 
   <nav class="sidebar-nav">
-    <a routerLink="/home" routerLinkActive="active" class="nav-item">
-      <span class="icon">🏠</span>
-      <span class="label">Home</span>
+    <a routerLink="/products"  [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" class="nav-item">
+      <span class="icon">🏪</span>
+      <span class="label">Shop</span>
     </a>
-    <a routerLink="/results" routerLinkActive="active" class="nav-item">
-      <span class="icon">📄</span>
-      <span class="label">Results</span>
+    <a routerLink="/products/my-products" routerLinkActive="active" class="nav-item" *ngIf="isSeller()">
+      <span class="icon">📦</span>
+      <span class="label">My Products</span>
     </a>
     <a routerLink="/tests" routerLinkActive="active" class="nav-item">
       <span class="icon">📋</span>
@@ -37,8 +37,8 @@
     <div class="user-profile">
       <div class="avatar">JA</div>
       <div class="user-info">
-        <span class="username">John Adebayo</span>
-        <span class="role">Teacher</span>
+        <span class="username">{{email}}</span>
+        <span class="role">{{role}}</span>
       </div>
     </div>
     

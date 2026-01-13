@@ -1,0 +1,55 @@
+.container { padding: 2rem; background: #f8fafc; min-height: 100vh; }
+.back-link { color: #64748b; text-decoration: none; margin-bottom: 1rem; display: block; font-size: 0.9rem; }
+
+.product-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: white;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Image section */
+.image-section { background: #f1f5f9; position: relative; display: flex; align-items: center; justify-content: center; }
+.stock-badge {
+  position: absolute; top: 20px; left: 20px;
+  background: #dcfce7; color: #166534;
+  padding: 0.4rem 1rem; border-radius: 2rem; font-weight: 600; font-size: 0.8rem;
+}
+.upload-placeholder { color: #94a3b8; cursor: pointer; border: 2px dashed #cbd5e1; padding: 2rem; border-radius: 1rem; }
+
+/* Info section */
+.info-section { padding: 3rem; }
+.category-label { color: #3b82f6; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; cursor: pointer; font-size: 0.85rem; }
+.product-title { font-size: 2.5rem; font-weight: 800; color: #1e293b; margin: 0.5rem 0; cursor: pointer; }
+.price-row { font-size: 2.5rem; font-weight: 700; color: #1e293b; margin: 1.5rem 0; display: flex; align-items: baseline; gap: 8px; }
+.currency { font-size: 1.2rem; color: #64748b; }
+
+/* Inputs "click-to-edit" */
+input, textarea {
+  border: 1px solid #3b82f6;
+  border-radius: 4px;
+  background: #eff6ff;
+  width: 100%;
+  padding: 4px 8px;
+  font-family: inherit;
+}
+.input-title { font-size: 2.5rem; font-weight: 800; }
+.input-price { width: 150px; }
+
+/* Actions */
+.actions { display: flex; gap: 1rem; margin-top: 2rem; }
+.stock-selector { border: 1px solid #e2e8f0; border-radius: 0.75rem; display: flex; align-items: center; overflow: hidden; }
+.stock-selector button { padding: 0.5rem 1rem; border: none; background: white; cursor: pointer; font-size: 1.2rem; }
+.stock-selector input { width: 40px; border: none; text-align: center; background: white; }
+
+.save-btn {
+  background: #3b82f6; color: white; border: none;
+  padding: 1rem 2rem; border-radius: 0.75rem;
+  font-weight: 600; cursor: pointer; flex: 1;
+  transition: background 0.2s;
+}
+.save-btn:hover { background: #2563eb; }
