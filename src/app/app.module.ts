@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { RouterModule } from '@angular/router';
+import { CartComponent } from './features/products/pages/cart/cart.component';
 
 
 
@@ -25,6 +26,7 @@ import { RouterModule } from '@angular/router';
         
          SideBarComponent,
                   MainLayoutComponent,
+                  CartComponent,
                   
                  
   ],

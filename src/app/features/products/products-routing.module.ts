@@ -5,6 +5,7 @@ import { ProductCreateComponent } from './pages/product-create/product-create.co
 import { RoleGuard } from '../auth/role.guard';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { MyProductsComponent } from './pages/my-products/my-products.component';
+import { CartComponent } from './pages/cart/cart.component';
 
 const routes: Routes = [
   { path: '', 
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'my-products',
     component: MyProductsComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
   },
   { path: ':id', 
     component: ProductDetailComponent
