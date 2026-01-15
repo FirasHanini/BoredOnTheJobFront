@@ -106,3 +106,32 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   color: #357abd;
   text-decoration: underline;
 }
+
+
+
+
+
+
+
+
+
+.role-select {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.role-select option {
+  background-color: #1a1a2e; /* Couleur sombre pour correspondre à la carte */
+  color: white;
+}
+
+.role-select:focus {
+  border-color: #4a90e2;
+}

@@ -1,0 +1,9 @@
+<div class="payment-container">
+      <h3>Complete your Payment</h3>
+      <div id="payment-element"></div>
+      
+      <button (click)="confirmPayment()" [disabled]="isLoading" class="pay-btn">
+        {{ isLoading ? 'Processing...' : 'Pay Now' }}
+      </button>
+      <div id="payment-message" class="hidden"></div>
+    </div>

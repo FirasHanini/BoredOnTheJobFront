@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/Models/Product';
 import { CartService } from '../../Services/cart.service';
 import { CartItem } from 'src/app/Models/cartItem';
+import { PaymentService } from '../../Services/payment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +18,9 @@ export class CartComponent implements OnInit {
   save: boolean = false;
   pendingDeleteIds = new Set<number>();
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService,
+              private router: Router
+  ) {}
 
   ngOnInit(): void {
 
@@ -40,13 +44,17 @@ export class CartComponent implements OnInit {
   }
 
   onCheckout(): void {
-    alert('Redirection vers le paiement... Montant total : ' + this.totalPrice + ' TND');
-    // Ici tu peux appeler une API de commande ou vider le panier
+  if (this.cartItems.length > 0) {
+    this.router.navigate(['products/cart/payment']); 
+  } else {
+    alert("Your cart is empty!");
+  }
+   
   }
 
   onSave(): void {
     this.cartService.removeFromCartBack(this.pendingDeleteIds).subscribe(() => {
-      alert('Modifications enregistrées avec succès !');
+      alert('Changes saved successfully!');
       this.save = false;
     this.pendingDeleteIds.clear();
     });

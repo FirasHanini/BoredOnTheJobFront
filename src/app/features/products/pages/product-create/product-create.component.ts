@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from '../../Services/product-service';
+import { Router } from '@angular/router';
+import { APP_ROUTES } from 'src/app/AppRoutes';
 
 @Component({
   selector: 'app-product-create',
@@ -19,7 +21,10 @@ export class ProductCreateComponent {
     description: false
   };
 
-  constructor(private fb: FormBuilder, private productService: ProductService) {
+  constructor(private fb: FormBuilder, 
+    private productService: ProductService,
+    private router: Router
+  ) {
     this.productForm = this.fb.group({
       name: ['Nouveau Produit', Validators.required],
       category: ['ÉLECTRONIQUE', Validators.required],
@@ -38,6 +43,7 @@ export class ProductCreateComponent {
       console.log('Produit à enregistrer :', this.productForm.value);
       this.productService.createProduct(this.productForm.value).subscribe(response => {
         console.log('Produit créé avec succès :', response);
+        this.router.navigate([APP_ROUTES.PRODUCTS+"/my-products"]); 
       });
     }
   }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/Models/Product';
 import { ProductService } from '../../Services/product-service';
 import { CartService } from '../../Services/cart.service';
+import { APP_ROUTES } from 'src/app/AppRoutes';
 
 @Component({
   selector: 'app-product-detail',
@@ -16,7 +17,8 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private cartService: CartService
+    private cartService: CartService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -39,12 +41,15 @@ export class ProductDetailComponent implements OnInit {
 
 
   onBuy() {
-    alert(`Produit ${this.product?.name} ajouté au panier ! Quantité : ${this.quantity}`);
+   
     
     // Ici, tu pourrais appeler un service CartService
     this.cartService.addToCart(this.product, this.quantity).subscribe({
-      next: () => console.log('Produit ajouté au panier'),
+      next: () => {
+        console.log('Produit ajouté au panier'),
+        this.router.navigate([APP_ROUTES.PRODUCTS]);},
       error: (err) => console.error('Erreur lors de l\'ajout au panier', err)
+      
     });
     this.quantity = 1;
   }

@@ -7,6 +7,7 @@ import { ProductCreateComponent } from './pages/product-create/product-create.co
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { MyProductsComponent } from './pages/my-products/my-products.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StripePayementComponent } from './stripe-payement/stripe-payement.component';
 
 
 
@@ -16,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductCreateComponent,
     ProductDetailComponent,
     MyProductsComponent,
+    StripePayementComponent,
     
   ],
   imports: [

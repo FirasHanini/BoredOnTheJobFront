@@ -7,12 +7,16 @@ import { jwtDecode } from 'jwt-decode';
   providedIn: 'root'
 })
 export class AuthService {
+  
+ 
    
 
   private baseUrl = 'http://localhost:8080';
   private authBase="/auth";
   private loginUrl=this.baseUrl+this.authBase+"/login";
   private logoutUrl=this.baseUrl+this.authBase+"/logout";
+  private registerUrl=this.baseUrl+this.authBase+"/register";
+  private registerSellerUrl=this.baseUrl+this.authBase+"/register-seller";
 
   constructor(private http: HttpClient) { }
 
@@ -56,5 +60,15 @@ export class AuthService {
       console.error("Failed to decode token", Error)
       ;
     }
+  }
+
+
+
+   register(value: any) {
+    return this.http.post<any>(`${this.baseUrl+this.authBase}/register`, value);
+  }
+
+  registerUser(value: any) {
+    return this.http.post<any>(`${this.baseUrl+this.authBase}/registerUser`, value);
   }
 }

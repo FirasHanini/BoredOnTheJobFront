@@ -29,27 +29,8 @@
         <span *ngIf="loading" class="loader"></span>
       </button>
     </form>
+    <div class="login-footer">
+      <p>Don't have an account? <a routerLink="register">Register here</a></p>
+    </div>
   </div>
 </div>
-
-
-<!--
-
-<form [formGroup]="loginForm" (ngSubmit)="submit()">
-
-  <h2>Sign in</h2>
-
-  <input type="email" formControlName="email" placeholder="Email">
-
-  <input type="password" formControlName="password" placeholder="Password">
-
-  <button type="submit" [disabled]="loading">
-    {{ loading ? 'Signing in...' : 'Login' }}
-  </button>
-
-  <p *ngIf="error" class="error">{{ error }}</p>
-
-</form>
-
-
--->
