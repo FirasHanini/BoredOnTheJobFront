@@ -49,8 +49,30 @@ export class CartComponent implements OnInit {
   } else {
     alert("Your cart is empty!");
   }
-   
   }
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   onSave(): void {
     this.cartService.removeFromCartBack(this.pendingDeleteIds).subscribe(() => {

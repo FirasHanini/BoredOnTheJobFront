@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
+import { RegisterRequest } from 'src/app/Models/registerRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class AuthService {
   private loginUrl=this.baseUrl+this.authBase+"/login";
   private logoutUrl=this.baseUrl+this.authBase+"/logout";
   private registerUrl=this.baseUrl+this.authBase+"/register";
-  private registerSellerUrl=this.baseUrl+this.authBase+"/register-seller";
+  private registerSellerUrl=this.baseUrl+this.authBase+"/seller-register";
 
   constructor(private http: HttpClient) { }
 
@@ -64,11 +65,13 @@ export class AuthService {
 
 
 
-   register(value: any) {
-    return this.http.post<any>(`${this.baseUrl+this.authBase}/register`, value);
+   registerSeller(value: RegisterRequest){
+   
+    return this.http.post<any>(this.registerSellerUrl, value  
+    ) ;
   }
 
-  registerUser(value: any) {
-    return this.http.post<any>(`${this.baseUrl+this.authBase}/registerUser`, value);
+  registerUser(value: RegisterRequest) {
+    return this.http.post<any>(this.registerUrl, value ,{responseType: 'text' as 'json'});
   }
 }

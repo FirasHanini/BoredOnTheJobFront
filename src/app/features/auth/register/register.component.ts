@@ -32,29 +32,38 @@ export class RegisterComponent {
 
     this.loading = true;
     this.error = '';
+    console.log(this.registerForm.value.role== 'USER');
 
     if(this.registerForm.value.role == 'USER' ) {
-      this.authService.registerUser(this.registerForm.value).subscribe({
+      this.authService.registerUser({email: this.registerForm.value.email, password: this.registerForm.value.password}).subscribe({
       next: () => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/products']);
       },
       error: (err) => {
+        console.log("Error here user", err);
         this.error = err.error?.message || "Registration failed";
         this.loading = false;
       }
     });
-    }else {
+    }  else {
  
-    this.authService.register(this.registerForm.value).subscribe({
-      next: () => {
-        this.router.navigate(['/login']);
+    this.authService.registerSeller({email: this.registerForm.value.email, password: this.registerForm.value.password}).subscribe({
+      next: (res:any) => {
+        console.log("Seller registered successfully", res.onboardingUrl);
+        if (res.onboardingUrl) {
+          console.log("Redirection vers Stripe...");
+          window.location.href = res.onboardingUrl; // Redirection externe
+     //  this.router.navigate(['/products']); 
+        }
       },
       error: (err) => {
+        console.log("Error here seller", err);
         this.error = err.error?.message || "Registration failed";
         this.loading = false;
       }
     });
-  }
+  } 
+    
   }
 
 

@@ -6,3 +6,7 @@
   --text-gray: #94a3b8;    /* Texte secondaire */
   --white: #ffffff;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
