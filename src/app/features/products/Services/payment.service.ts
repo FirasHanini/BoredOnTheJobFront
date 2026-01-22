@@ -9,12 +9,13 @@ import { key } from 'src/app/key';
 export class PaymentService {
 
     private baseUrl = 'http://localhost:8080';
-  private paymentBase="/payment";
+  private paymentBase="/stripe";
+  private paymeeBase="/paymee"
 
   constructor(private http: HttpClient) { }
 
-  getIntent() {
-    // On appelle ton @PostMapping que tu as montré avant
-    return this.http.post<any>(this.baseUrl+this.paymentBase, {});
+  getIntent():any {
+   
+    return this.http.post<any>(this.baseUrl+this.paymeeBase, {});
   }
 }

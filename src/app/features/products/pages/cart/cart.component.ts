@@ -19,7 +19,8 @@ export class CartComponent implements OnInit {
   pendingDeleteIds = new Set<number>();
 
   constructor(private cartService: CartService,
-              private router: Router
+              private router: Router,
+              private paymentService: PaymentService
   ) {}
 
   ngOnInit(): void {
@@ -45,7 +46,11 @@ export class CartComponent implements OnInit {
 
   onCheckout(): void {
   if (this.cartItems.length > 0) {
-    this.router.navigate(['products/cart/payment']); 
+    this.paymentService.getIntent().subscribe((response) => {
+      console.log("Payment intent response:", response.data.payment_url);
+      window.location.href = response.data.payment_url;
+    
+    });
   } else {
     alert("Your cart is empty!");
   }
