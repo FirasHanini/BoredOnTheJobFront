@@ -16,6 +16,8 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { RouterModule } from '@angular/router';
 import { CartComponent } from './features/products/pages/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PayoutsComponent } from './features/admin/payouts/payouts.component';
+
 
 
 
@@ -29,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
          SideBarComponent,
                   MainLayoutComponent,
                   CartComponent,
+                  PayoutsComponent,
                   
                  
   ],

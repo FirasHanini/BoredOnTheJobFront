@@ -42,6 +42,11 @@ export class SideBarComponent implements OnInit {
     return role === 'SELLER';
   }
 
+  isAdmin(): boolean {
+    const role = localStorage.getItem('role');
+    return role === 'ADMIN';
+  }
+
   getDetails(): void {
     this.email = localStorage.getItem('email');
     this.role = localStorage.getItem('role');

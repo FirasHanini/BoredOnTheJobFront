@@ -11,6 +11,8 @@ export class PaymentService {
     private baseUrl = 'http://localhost:8080';
   private paymentBase="/stripe";
   private paymeeBase="/paymee"
+  
+  private exportPayout="/export-payouts"
 
   constructor(private http: HttpClient) { }
 
@@ -18,4 +20,10 @@ export class PaymentService {
    
     return this.http.post<any>(this.baseUrl+this.paymeeBase, {});
   }
+
+  extractPayouts(){
+    return this.http.get(this.baseUrl+this.paymeeBase+this.exportPayout, { responseType: 'blob'  });
+  }
+
+
 }

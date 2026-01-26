@@ -5,4 +5,5 @@ export const APP_ROUTES = {
   REGISTER: 'register',
   PROFILE: 'profile',
   HOME: '',
+  PAYOUTS: 'payouts'
 };

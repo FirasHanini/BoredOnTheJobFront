@@ -1,0 +1,99 @@
+.payout-container {
+  padding: 2rem;
+  background-color: #f8f9fa; /* Fond clair comme ta zone shop */
+  min-height: 100vh;
+}
+
+.header-section h2 {
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.table-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.payout-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.payout-table th {
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+  color: #6c757d;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.payout-table td {
+  padding: 1.2rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  color: #444;
+}
+
+.seller-name {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.items-list {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.amount-cell {
+  font-weight: bold;
+  color: #3b5bdb; /* Le bleu de ton prix 5000 TND */
+  text-align: right;
+}
+
+/* Effet au survol de la ligne */
+.payout-table tr:hover {
+  background-color: #fdfdfd;
+}
+
+/* Alignement du titre et du bouton */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Style du bouton Download */
+.btn-download {
+  background-color: #3b5bdb; /* Le bleu de ton prix */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espace entre l'icône et le texte */
+  box-shadow: 0 4px 6px rgba(59, 91, 219, 0.2);
+}
+
+.btn-download:hover {
+  background-color: #2b46b1; /* Un bleu un peu plus foncé au survol */
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(59, 91, 219, 0.3);
+}
+
+.btn-download:active {
+  transform: translateY(0);
+}
+
+/* Icône (si tu utilises FontAwesome) */
+.btn-download i {
+  font-size: 0.9rem;
+}

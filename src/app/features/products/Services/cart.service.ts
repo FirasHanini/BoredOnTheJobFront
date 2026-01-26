@@ -76,6 +76,11 @@ export class CartService {
     return this.http.delete<any>(this.cartUrl, { params });
   }
 
+  flushCart() {
+    this.items = [];
+    this.saveAndNotify();
+  }
+
 
 
 

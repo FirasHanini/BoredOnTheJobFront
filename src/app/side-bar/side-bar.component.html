@@ -21,11 +21,11 @@
       <span class="icon">🛒</span>
       <span class="label">Cart</span>
     </a>
-    <a routerLink="/resources" routerLinkActive="active" class="nav-item">
+    <a routerLink="/payouts" routerLinkActive="active" class="nav-item" *ngIf="isAdmin()">
       <span class="icon">📖</span>
-      <span class="label">Resources</span>
+      <span class="label">Payouts</span>
     </a>
-    <a routerLink="/payment" routerLinkActive="active" class="nav-item">
+    <a routerLink="/payment" routerLinkActive="active" class="nav-item"  *ngIf="isSeller()" >
       <span class="icon">💳</span>
       <span class="label">Payment</span>
     </a>
@@ -33,7 +33,7 @@
 
   <div class="sidebar-footer">
     <div class="user-profile">
-      <div class="avatar">JA</div>
+      <div class="avatar">{{ email | slice:0:2 | uppercase }}</div>
       <div class="user-info">
         <span class="username">{{email}}</span>
         <span class="role">{{role}}</span>

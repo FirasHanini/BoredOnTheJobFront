@@ -47,7 +47,8 @@ export class CartComponent implements OnInit {
   onCheckout(): void {
   if (this.cartItems.length > 0) {
     this.paymentService.getIntent().subscribe((response) => {
-      console.log("Payment intent response:", response.data.payment_url);
+      console.log("Payment intent response:", response);
+      this.cartService.flushCart();
       window.location.href = response.data.payment_url;
     
     });

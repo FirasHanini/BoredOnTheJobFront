@@ -42,6 +42,12 @@ export class AuthService {
   }
 
 
+
+
+
+
+  
+
    getDetails(token: string):void {
 
     if (!token){ 
